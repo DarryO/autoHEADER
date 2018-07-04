@@ -54,6 +54,10 @@ fun! s:insert_header_with_ft(ft)
                 if  type(prefix_by_ft)==type('') && len(prefix_by_ft)>0
                     call append(0 , prefix_by_ft)
                     let start_line += 1
+                    if a:ft == 'python'
+                      call append(start_line , '# coding: utf-8')
+                      let start_line += 1
+                    endif
                 endif
             endif
 
